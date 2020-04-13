@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh" onselectstart="return false">
+	<!--头部-->
+	<head>
+		<meta charset="utf-8"/>
+		<title>紫网 - 封禁列表</title>
+		<link rel="shortcut icon" href="favicon.ico">
+		<script text="text/javascript" src="js/jQuery-3.5.0.js"></script>
+		<script text="text/javascript" src="js/+10086.js"></script>
+	</head>
+	<!--身体-->
+	<body>
+		<script>
+			$(function () {
+				//是否开启序号
+				var banlistnumb = true;
+				
+				//定义表头
+				var banlisthead = new Array("封禁玩家名","封禁者QQ","封禁理由","执法者","开始时间","结束时间");
+			
+				//定义封禁玩家
+				var banlist= new Array(
+					new Array("MiruriN","2744805896","诈骗、出售游戏漏洞类产品","JiuTianLang","2020-04-11","2099-12-31"),
+				)
+				
+				//创建表头
+				$("#banlist").append("<tr id=\"banlist_head\"></tr>");
+				if (banlistnumb) $("#banlist_head").append("<th>序号</th>");
+				for (var i in banlisthead){
+					$("#banlist_head").append("<th banlist_head_"+i+">"+banlisthead[i]+"</th>");
+				}
+				//创建表格
+				for (var i in banlist){
+					$("#banlist").append("<tr class=\"banlist_tr\" id=\"banlist_uid_"+i+"\"></tr>");
+					if (banlistnumb) $("#banlist_uid_"+i).append("<td>"+(Number(i)+1)+"</td>");
+					for (var j in banlist[i]){
+						$("#banlist_uid_"+i).append("<td>"+banlist[i][j]+"</td>");
+					}
+				}
+			})
+		</script>
+		<style>
+			/*
+			#banlist th{
+				text-align: left;
+			}
+			*/
+			#banlist td{
+				text-align: center;
+				height: 32px;
+			}
+			#banlist_head{
+				color: white;
+				background: -moz-linear-gradient(left, #B708E5 0%, #3E00F9 100%);
+				background: -webkit-linear-gradient(top, #B708E5 0%,#3E00F9 100%);
+				background: -o-linear-gradient(top, #B708E5 0%,#3E00F9 100%);
+				background: -ms-linear-gradient(left, #B708E5 0%,#3E00F9 100%);
+				background: linear-gradient(to right, #B708E5 0%,#3E00F9 100%);
+				height: 50px;
+			}
+			table{
+				table-layout: automatic;
+				border-collapse: collapse;
+				font-size: 16px;
+			}
+			body{
+				margin: 0px;
+				cursor: default;
+			}
+			.banlist_tr{
+				border-style: none none solid none;
+				border-color: #3E00F9;
+				border-width: 2px;
+				color: #23b7cb;
+			}
+			.banlist_tr:hover{
+				color: #000;
+			}
+		</style>
+		<div>
+			<table id="banlist" border="0" style="width:100%;">
+				<!--<caption>封禁列表</caption>-->
+			</table>
+		</div>
+	</body>
+</html>
