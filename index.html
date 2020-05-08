@@ -156,26 +156,49 @@
 <section class="zl">
 	<div>暂留<div>
 </section>
+
+<script text="text/javascript" src="js/jQuery-3.5.0.js"></script>
  <section class="bg-dark position-relative pt-5">
         <div class="container">
           <div class="row text-center text-uppercase text-white">
+		<script>
+			$(document).ready(function () {
+				var yhrs = $("#yhrs").text();
+				alert(yhrs);
+				
+				$("#yhrs").bind("DOMNodeInserted",function(e){
+					if (yhrs == $(e.target).text()){
+						$("#yhrs").text(yhrs + "+");
+					}
+				})
+			})
+		</script>
             <div class="col-lg-3 col-sm-6 pb-5">
-              <h5 class="js-counter display-4 mb-1">6</h5>
+              <h5 class="js-counter display-4 mb-1" id="yhrs">100</h5>
               <small class="d-block font-style-normal text-uppercase wt-letter-spacing-sm">用户人数</small>
             </div>
 
             <div class="col-lg-3 col-sm-6 pb-5">
-              <h5 class="js-counter display-4 mb-1">1</h5>
+              <h5 class="js-counter display-4 mb-1">2</h5>
               <small class="d-block font-style-normal text-uppercase wt-letter-spacing-sm">封禁人数</small>
             </div>
 
             <div class="col-lg-3 col-sm-6 pb-5">
-              <h5 class="js-counter display-4 mb-1">19</h5>
+              <h5 class="js-counter display-4 mb-1">53</h5>
               <small class="d-block font-style-normal text-uppercase wt-letter-spacing-sm">模块个数</small>
             </div>
-
+		
+		
+		<script>
+			$(document).ready(function () {
+				var rq = 1586484000;
+				var jt = Math.round(new Date() / 1000);
+				var cl = Math.round((jt - rq) / 60 / 60 / 24);
+				$("#成立日期").text(""+cl);
+			})
+		</script>
             <div class="col-lg-3 col-sm-6 pb-5">
-              <h5 class="js-counter display-4 mb-1">2</h5>
+              <h5 class="js-counter display-4 mb-1" id="成立日期">29</h5>
               <small class="d-block font-style-normal text-uppercase wt-letter-spacing-sm">成立天数</small>
             </div>
           </div>
